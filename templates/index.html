@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index page</title>
+</head>
+<body>
+    <h1>LIST:</h1>
+    <p>Your Tasks:</p>
+    <ul>
+    {% for task in tasks %}
+        <p>{{ task[0]}}) {{task[1] }} <a href="{{ url_for('removetask',task=task[0]) }}">Delete</a>
+        </p>
+    {% endfor %}
+    </ul>
+    <h1>AGGIUNGI TASK:</h1>
+    <form action="{{ url_for('newtask') }}" method="post">
+        <input type="text" name="newtask">
+        <input type="submit" value="Add Task">
+    </form>
+</body>
+</html>
